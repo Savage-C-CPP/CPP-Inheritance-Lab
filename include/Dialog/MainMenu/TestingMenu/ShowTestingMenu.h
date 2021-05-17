@@ -15,9 +15,8 @@ void ShowTestingMenu()
         for (size_t i = 0; i < testing_meny_quantity; ++i)
             std::cout << testing_menu[i].title << "\n";
 
-        std::cout << "> ";
-        char choice;
-        std::cin >> choice;
+        int choice;
+        choice = get_variant(testing_meny_quantity);
         for (size_t i = 0; i < testing_meny_quantity; ++i)
         {
             if (choice == testing_menu[i].choice)

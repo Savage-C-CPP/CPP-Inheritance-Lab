@@ -12,9 +12,9 @@ void ShowMainMenu();
 
 static const MenuEntry initialization_menu[] =
 {
-    {'1', "1. Задать количество элементов", false, SetArrayCapacity},
-    {'2', "2. Заполнить данными", true, FillArray},
-    {'3', "3. Назад", false, ShowMainMenu},
+    {1, "1. Задать количество элементов", false, SetArrayCapacity},
+    {2, "2. Заполнить данными", true, FillArray},
+    {3, "3. Назад", false, ShowMainMenu},
 };
 
 static const size_t initialization_menu_quantity =

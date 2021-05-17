@@ -14,10 +14,10 @@ void ShowMainMenu();
 
 static const MenuEntry testing_menu[] =
 {
-    {'1', "1. MyString",          true,  TestMyString},
-    {'2', "2. CIdentifierString", true,  TestCIdentifierString},
-    {'3', "3. OctString",         true,  TestOctString},
-    {'4', "4. Назад",             false, ShowMainMenu},
+    {1, "1. MyString",          true,  TestMyString},
+    {2, "2. CIdentifierString", true,  TestCIdentifierString},
+    {3, "3. OctString",         true,  TestOctString},
+    {4, "4. Назад",             false, ShowMainMenu},
 };
 
 static const size_t testing_meny_quantity =

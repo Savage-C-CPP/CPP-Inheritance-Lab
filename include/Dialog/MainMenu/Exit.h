@@ -8,7 +8,7 @@ void Exit() {
     std::cin.ignore(1024, '\n');
     std::cout << "Press enter to continue...";
     std::cin.get();
-    exit(0);
+    exit(EXIT_SUCCESS);
 }
 
 #endif // __EXIT_H__
