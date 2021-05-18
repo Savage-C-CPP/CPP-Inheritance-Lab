@@ -1,13 +1,13 @@
 #ifndef __TEST_MYSTRING_H__
 #define __TEST_MYSTRING_H__
 
+#include "Dialog/DialogMenu.h"
 #include <iostream>
 
-void TestMyString() {
+void TestMyString(DataBox& data) {
+    // TODO: Need implementation
     std::cout << "TestMyString()\n";
-    std::cin.ignore(1024, '\n');
-    std::cout << "Press enter to continue...";
-    std::cin.get();
+    pause();
 }
 
 #endif // __TEST_MYSTRING_H__

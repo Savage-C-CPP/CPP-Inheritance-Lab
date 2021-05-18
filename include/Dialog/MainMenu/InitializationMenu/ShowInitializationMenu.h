@@ -4,7 +4,7 @@
 #include "Dialog/MainMenu/InitializationMenu/InitializationMenu.h"
 #include <iostream>
 
-void ShowInitializationMenu()
+void ShowInitializationMenu(DataBox& data)
 {
     while (true)
     {
@@ -20,8 +20,21 @@ void ShowInitializationMenu()
             if (choice == initialization_menu[i].choice)
             {
                 Delegate procedure = initialization_menu[i].procedure;
-                (procedure)();
-                break;
+                if (!menu_entry_block_list[initialization_menu[i].entryName]) // Если пункт не заблокирован
+                {
+                    (procedure)(data);
+                    break;
+                }
+                else
+                {
+                    if (initialization_menu[i].entryName == "SetArrayCapacity")
+                        block_info("Задать размер массива можно только 1 раз");
+                    if (initialization_menu[i].entryName == "FillArray")
+                        block_info("Сперва задайте размер массива строк");
+                    else
+                        block_info("Неизвестная причина");
+                    break;
+                }
             }
         }
     }

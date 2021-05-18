@@ -2,16 +2,24 @@
 #define __DIALOG_MENU_H__
 
 #include <limits>
+#include <map>
 
-typedef void (*Delegate)(void);
+// Будем кидать ссылку на такую коробку из процедуры в процедуру и оперировать данными в ней
+struct DataBox {
+    MyString* strings;
+    int numOfStrings;
+};
+
+typedef void (*Delegate)(DataBox&);
 
 struct MenuEntry
 {
     int choice;
+    char const *entryName;
     char const *title;
-    bool blocked;
     Delegate procedure;
 };
+
 
 char get_variant(unsigned int max)
 {
@@ -35,5 +43,31 @@ char get_variant(unsigned int max)
     }
     return choice;
 }
+
+void pause() {
+    std::cin.ignore(1024, '\n');
+    std::cout << "Press enter to continue...";
+    std::cin.get();
+}
+
+void block_info(const char why[]) {
+    std::cout << "Этот пункт недоступен!\n";
+    std::cout << "Причина: " << why << "\n";
+    pause();
+}
+
+std::map<std::string, bool> menu_entry_block_list {
+    // Main menu
+    {"MainMenu",             false},
+    {"InitializationMenu",   false},
+    {"TestingMenu",          true},
+    // Init menu entries   
+    {"SetArrayCapacity",      false},
+    {"FillArray",             true},
+    // Testing menu   
+    {"TestMyString",          true},
+    {"TestCIdentifierString", true},
+    {"TestOctString",         true}
+};
 
 #endif //__DIALOG_MENU_H__

@@ -3,11 +3,10 @@
 
 #include <iostream>
 
-void TestOctString() {
+void TestOctString(DataBox& data) {
+    // TODO: Need implementation
     std::cout << "TestOctString()\n";
-    std::cin.ignore(1024, '\n');
-    std::cout << "Press enter to continue...";
-    std::cin.get();
+    pause();
 }
 
 #endif // __TEST_OCTSTRING_H__

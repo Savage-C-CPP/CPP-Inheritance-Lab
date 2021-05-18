@@ -6,7 +6,7 @@
 
 using std::cout;
 
-void ShowTestingMenu()
+void ShowTestingMenu(DataBox &data)
 {
     while (true)
     {
@@ -22,8 +22,22 @@ void ShowTestingMenu()
             if (choice == testing_menu[i].choice)
             {
                 Delegate procedure = testing_menu[i].procedure;
-                (procedure)();
-                break;
+                if (!menu_entry_block_list[testing_menu[i].entryName]) // Если пункт не заблокирован
+                {
+                    (procedure)(data);
+                    break;
+                }
+                else
+                {
+                    // if (initialization_menu[i].entryName == "SetArrayCapacity")
+                    //     block_info("Задать размер массива можно только 1 раз");
+                    // if (initialization_menu[i].entryName == "FillArray")
+                    //     block_info("Сперва задайте размер массива строк");
+                    // else
+                    //     block_info("Неизвестная причина");
+                    block_info("Тестирование этого класса недоступно. (Вероятно вы его не добавили в массив DataBox.strings*");
+                    break;
+                }
             }
         }
     }

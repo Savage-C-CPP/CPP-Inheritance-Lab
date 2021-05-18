@@ -2,9 +2,10 @@
 #define __SHOW_MAIN_MENU_H__
 
 #include "Dialog/MainMenu/MainMenu.h"
+#include "MyString.h"
 #include <iostream>
 
-void ShowMainMenu()
+void ShowMainMenu(DataBox &data)
 {
     while (true)
     {
@@ -20,8 +21,19 @@ void ShowMainMenu()
             if (choice == main_menu[i].choice)
             {
                 Delegate procedure = main_menu[i].procedure;
-                (procedure)();
-                break;
+                if (!menu_entry_block_list[main_menu[i].entryName]) // Если пункт не заблокирован
+                {
+                    (procedure)(data);
+                    break;
+                }
+                else
+                {
+                    if (main_menu[i].entryName == "TestingMenu")
+                        block_info("Тестирование недоступно. Убедитесь, что вы заполнили массив строк.");
+                    else
+                        block_info("Неизвестная причина");
+                    break;
+                }
             }
         }
     }

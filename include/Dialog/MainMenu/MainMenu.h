@@ -6,15 +6,15 @@
 #include "./TestingMenu/ShowTestingMenu.h"
 #include "./Exit.h"
 
-void ShowInitializationMenu();
-void ShowTestingMenu();
-void Exit();
+void ShowInitializationMenu(DataBox &);
+void ShowTestingMenu(DataBox &);
+void Exit(DataBox &);
 
-static const MenuEntry main_menu[] =
+static MenuEntry main_menu[] =
 {
-    {1, "1. Инициализация", false, ShowInitializationMenu},
-    {2, "2. Тестирование",  true,  ShowTestingMenu},
-    {3, "3. Выход",         false, Exit},
+    {1, "InitializationMenu", "1. Инициализация", ShowInitializationMenu},
+    {2, "TestingMenu", "2. Тестирование", ShowTestingMenu},
+    {3, "Exit", "3. Выход", Exit},
 };
 
 static const size_t main_menu_quantity =

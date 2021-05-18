@@ -6,15 +6,15 @@
 #include "./FillArray.h"
 #include "../ShowMainMenu.h"
 
-void SetArrayCapacity();
-void FillArray();
-void ShowMainMenu();
+void SetArrayCapacity(DataBox &);
+void FillArray(DataBox &);
+void ShowMainMenu(DataBox &);
 
-static const MenuEntry initialization_menu[] =
+static MenuEntry initialization_menu[] =
 {
-    {1, "1. Задать количество элементов", false, SetArrayCapacity},
-    {2, "2. Заполнить данными", true, FillArray},
-    {3, "3. Назад", false, ShowMainMenu},
+    {1, "SetArrayCapacity", "1. Задать количество элементов", SetArrayCapacity},
+    {2, "FillArray", "2. Заполнить данными", FillArray},
+    {3, "MainMenu", "3. Назад", ShowMainMenu}
 };
 
 static const size_t initialization_menu_quantity =

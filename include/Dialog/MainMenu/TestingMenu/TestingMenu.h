@@ -7,17 +7,17 @@
 #include "./TestOctString.h"
 #include "../ShowMainMenu.h"
 
-void TestMyString();
-void TestCIdentifierString();
-void TestOctString();
-void ShowMainMenu();
+void TestMyString(DataBox &);
+void TestCIdentifierString(DataBox &);
+void TestOctString(DataBox &);
+void ShowMainMenu(DataBox &);
 
-static const MenuEntry testing_menu[] =
+static MenuEntry testing_menu[] =
 {
-    {1, "1. MyString",          true,  TestMyString},
-    {2, "2. CIdentifierString", true,  TestCIdentifierString},
-    {3, "3. OctString",         true,  TestOctString},
-    {4, "4. Назад",             false, ShowMainMenu},
+    {1, "TestMyString", "1. MyString", TestMyString},
+    {2, "TestCIdentifierString", "2. CIdentifierString", TestCIdentifierString},
+    {3, "TestOctString", "3. OctString", TestOctString},
+    {4, "MainMenu", "4. Назад", ShowMainMenu},
 };
 
 static const size_t testing_meny_quantity =
