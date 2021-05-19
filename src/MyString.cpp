@@ -52,7 +52,7 @@ MyString::MyString(const MyString &_)
     // Copying not buffer pointer but each value
     for (size_t i = 0; i < len; ++i)
         buffer[i] = _.buffer[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
 };
 
 MyString::~MyString()
@@ -70,7 +70,12 @@ size_t MyString::getLength() const
 #endif
     return len;
 };
-
+bool MyString::isEmpty() const {
+#ifdef __LOG_METHODS_CALLS__
+    std::cout << "Вызов метода MyString::isEmpty()\n";
+#endif
+    return len == 0;
+}
 char *MyString::getRawData() const
 {
     return buffer;
@@ -82,13 +87,14 @@ void MyString::operator=(MyString rval)
     std::cout << "Вызов оператора MyString::operator=(MyString)\n";
 #endif
     // lvalue уже мог быть проинициализирован, поэтому сначала освобождаем его буфер
-    delete buffer;
+    if (buffer != nullptr)
+        delete buffer;
     // и выделяем память заново
     len = rval.getLength();
     buffer = new char[len + 1];
     for (size_t i = 0; i < len; ++i)
         buffer[i] = rval.buffer[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
 };
 
 void MyString::operator=(const char rval[])
@@ -104,7 +110,7 @@ void MyString::operator=(const char rval[])
     buffer = new char[len + 1];
     for (size_t i = 0; i < len; ++i)
         buffer[i] = rval[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
 };
 
 char MyString::operator[](unsigned int pos)

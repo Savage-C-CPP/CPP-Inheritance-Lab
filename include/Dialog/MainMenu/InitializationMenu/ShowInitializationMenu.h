@@ -14,7 +14,7 @@ void ShowInitializationMenu(DataBox& data)
             std::cout << initialization_menu[i].title << "\n";
 
         int choice;
-        choice = get_variant(initialization_menu_quantity);
+        choice = get_variant(1, initialization_menu_quantity);
         for (size_t i = 0; i < initialization_menu_quantity; ++i)
         {
             if (choice == initialization_menu[i].choice)
@@ -29,7 +29,7 @@ void ShowInitializationMenu(DataBox& data)
                 {
                     if (initialization_menu[i].entryName == "SetArrayCapacity")
                         block_info("Задать размер массива можно только 1 раз");
-                    if (initialization_menu[i].entryName == "FillArray")
+                    else if (initialization_menu[i].entryName == "FillArray")
                         block_info("Сперва задайте размер массива строк");
                     else
                         block_info("Неизвестная причина");

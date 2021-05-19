@@ -25,6 +25,7 @@ public:
     char operator[](const unsigned int);
 
     size_t getLength() const;
+    bool isEmpty() const;
     char *getRawData() const;
     void println() const;
 };

@@ -6,9 +6,9 @@
 void SetArrayCapacity(DataBox& data) {
     std::cout << "SetArrayCapacity()\n";
     int capacity;
-    capacity = get_variant(5); // 5 max enough
-    data.numOfStrings = capacity;
-    data.strings = new MyString[capacity];
+    capacity = get_variant(1, 5); // 5 max enough
+    data.sizeOfArr = capacity;
+    data.strings = new MyString*[capacity];
     // Блокируем этот пункт, разблокируем пункт заполнения
     menu_entry_block_list["SetArrayCapacity"] = true;
     menu_entry_block_list["FillArray"] = false;

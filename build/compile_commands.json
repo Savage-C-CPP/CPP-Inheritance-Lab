@@ -6,11 +6,6 @@
 },
 {
   "directory": "/home/wvovaw/Documents/Studwork/Niyaz/lr2/build",
-  "command": "/bin/c++  -I/home/wvovaw/Documents/Studwork/Niyaz/lr2/include -g -o CMakeFiles/lr2.dir/src/CIdentifierString_Po_Variantu.cpp.o -c /home/wvovaw/Documents/Studwork/Niyaz/lr2/src/CIdentifierString_Po_Variantu.cpp",
-  "file": "/home/wvovaw/Documents/Studwork/Niyaz/lr2/src/CIdentifierString_Po_Variantu.cpp"
-},
-{
-  "directory": "/home/wvovaw/Documents/Studwork/Niyaz/lr2/build",
   "command": "/bin/c++  -I/home/wvovaw/Documents/Studwork/Niyaz/lr2/include -g -o CMakeFiles/lr2.dir/src/MyString.cpp.o -c /home/wvovaw/Documents/Studwork/Niyaz/lr2/src/MyString.cpp",
   "file": "/home/wvovaw/Documents/Studwork/Niyaz/lr2/src/MyString.cpp"
 },

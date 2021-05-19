@@ -6,8 +6,9 @@
 
 // Будем кидать ссылку на такую коробку из процедуры в процедуру и оперировать данными в ней
 struct DataBox {
-    MyString* strings;
-    int numOfStrings;
+    MyString** strings;
+    int sizeOfArr;
+    bool filled = false;
 };
 
 typedef void (*Delegate)(DataBox&);
@@ -21,7 +22,7 @@ struct MenuEntry
 };
 
 
-char get_variant(unsigned int max)
+char get_variant(unsigned int min, unsigned int max)
 {
     bool done = false;
     int choice;
@@ -36,7 +37,7 @@ char get_variant(unsigned int max)
             std::cout << "Некоректный ввод. Попробуйте снова!\n";
             break;
         }
-        else if (choice < 1 || choice > max)
+        else if (choice < min || choice > max)
             std::cout << "Некоректный ввод. Попробуйте снова!\n";
         else
             done = true;
@@ -45,7 +46,7 @@ char get_variant(unsigned int max)
 }
 
 void pause() {
-    std::cin.ignore(1024, '\n');
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "Press enter to continue...";
     std::cin.get();
 }

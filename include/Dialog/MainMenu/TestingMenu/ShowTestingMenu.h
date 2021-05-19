@@ -16,7 +16,7 @@ void ShowTestingMenu(DataBox &data)
             std::cout << testing_menu[i].title << "\n";
 
         int choice;
-        choice = get_variant(testing_meny_quantity);
+        choice = get_variant(1, testing_meny_quantity);
         for (size_t i = 0; i < testing_meny_quantity; ++i)
         {
             if (choice == testing_menu[i].choice)

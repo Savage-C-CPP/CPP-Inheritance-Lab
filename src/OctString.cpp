@@ -141,10 +141,11 @@ void OctString::operator=(MyString rval)
     if (buffer != nullptr)
         delete buffer;
     len = rval.getLength();
-    buffer = new char[len + 1];
+    // buffer = new char[len + 1];
+    buffer = new char[len];
     for (size_t i = 0; i < len; ++i)
         buffer[i] = rvalBuffer[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
 
     if (buffer[0] == '-')
         positive = false;
@@ -157,7 +158,7 @@ void OctString::operator=(OctString rval)
 #ifdef __LOG_METHODS_CALLS__
     std::cout << "Вызов оператора OctString::operator=(OctString)\n";
 #endif
-    char *rvalBuffer = rval.getRawData();
+    char *rvalBuffer = rval.buffer;
     if (!OctString::isValidOctString(rvalBuffer))
     {
         std::cerr << "[ERR] rvalue не является валидным восьмиричным числом.\n";
@@ -173,10 +174,11 @@ void OctString::operator=(OctString rval)
     if (buffer != nullptr)
         delete buffer;
     len = rval.getLength();
-    buffer = new char[len + 1];
+    // buffer = new char[len + 1];
+    buffer = new char[len];
     for (size_t i = 0; i < len; ++i)
         buffer[i] = rvalBuffer[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
     positive = rval.positive;
 };
 
@@ -200,10 +202,11 @@ void OctString::operator=(const char rval[])
     if (buffer != nullptr)
         delete buffer;
     len = strlen(rval);
-    buffer = new char[len + 1];
+    // buffer = new char[len + 1];
+    buffer = new char[len];
     for (size_t i = 0; i < len; ++i)
         buffer[i] = rval[i];
-    buffer[len + 1] = '\0';
+    buffer[len] = '\0';
 
     if (buffer[0] == '-')
         positive = false;
