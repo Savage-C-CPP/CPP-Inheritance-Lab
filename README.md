@@ -19,3 +19,7 @@
 4. Debug and Run with `>cmake:debug` or `>cmake:Run without debugging`
 
 Look at the bottoms statusbar and learn
+
+# Main rules and tips
+
+- After you add/remove a file, run `cmake:configure`
